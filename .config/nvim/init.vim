@@ -92,6 +92,7 @@ Plugin 'jiangmiao/auto-pairs' "For brackets autoclosing
 Plugin 'wvffle/vimterm' " Provides an easier way to interact with command-line directly from NVim
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'roxma/nvim-completion-manager'
 
 " Languages
 Plugin 'sheerun/vim-polyglot' " Provides support for various languages
@@ -170,6 +171,13 @@ noremap <Leader>l :Lines<CR>
 noremap <Leader>b :Buffers<CR>
 noremap <Leader>h :History<CR>
 " === End fzf settings ===
+
+" === nvim-completion-manager ===
+set shortmess+=c
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <c-c> <ESC>
+" === End nvim-completion-manager ===
 
 " === Neomake ===
 let g:neomake_cpp_enabled_makers = ["gcc"]
