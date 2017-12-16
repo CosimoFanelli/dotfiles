@@ -101,7 +101,7 @@ Plugin 'ludovicchabant/vim-gutentags' "Tags
 Plugin 'w0rp/ale'
 Plugin 'fatih/vim-go'
 Plugin 'jstemmer/gotags'
-
+Plugin 'nsf/gocode', {'rtp': 'nvim/'}
 call vundle#end()
 " === End Plugins ===
 
@@ -209,3 +209,16 @@ let g:ale_linters = {
 \   'cpp': ['clang'],
 \}
 " === End Ale linter ===
+
+" === Vim-go ===
+let g:go_fmt_autosave = 0
+
+augroup go_commands
+    autocmd!
+
+    autocmd FileType go nnoremap <Leader>gd :exe ':GoDoc ' . expand('<cword>')<CR>
+    autocmd FileType go nnoremap <Leader>gb :GoBuild<CR>
+    autocmd FileType go nnoremap <Leader>gR :GoRename<CR>
+    autocmd FileType go nnoremap <Leader>gr :GoRun<CR>
+augroup END
+" === End Vim-go settings ===
